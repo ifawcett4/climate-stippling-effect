@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import './stylesheets/Styleguide.scss';
+
+import Intro from './components/Intro'
+import Camera from './components/Camera'
+import Results from "./components/Results";
+import Share from "./components/Share";
+import Filter from "./components/Filter"
+import QRcode from "./components/QRcode"
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Intro/>} />
+          <Route path="/camera" element={<Camera/>} />
+          <Route path="/results" element={<Results/>} />
+          <Route path="/share" element={<Share/>} />
+          <Route path="/filter" element={<Filter/>} />
+          <Route path="/qr" element={<QRcode/>} />
+        </Routes>
+      </Router>
     </div>
   );
 }
